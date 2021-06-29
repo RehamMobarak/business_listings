@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ListingsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// Route::resource('listings', ListingsController::class);
+
+
+/**
+ * App Routes
+ */
+Route::middleware('auth')->group(function () {
+    Route::resource('listings', ListingsController::class);
+});
+
 require __DIR__.'/auth.php';
+
