@@ -47,6 +47,7 @@
                     </a>
                 @endif
 
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
