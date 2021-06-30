@@ -15,6 +15,13 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id'); //foreign k
+            $table->string('Name');
+            $table->string('Address');
+            $table->string('Website');
+            $table->string('Email');
+            $table->string('Bio');
+            $table->integer('Phone')->unsigned();
             $table->timestamps();
         });
     }
