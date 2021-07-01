@@ -32,9 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        //    return redirect()->intended(RouteServiceProvider::HOME);
-        return view('index')->with('listings', Auth::user()->listings);
-
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

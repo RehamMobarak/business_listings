@@ -31,7 +31,10 @@ Route::get('/dashboard', function () {
  */
 Route::middleware('auth')->group(function () {
     Route::resource('listings', ListingsController::class);
+    Route::get('/index', function () {
+        $listings = Auth::user()->listings;
+        return view('index')->with('listings', $listings);
+    })->name('index');
 });
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
