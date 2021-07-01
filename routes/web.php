@@ -23,15 +23,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-// Route::resource('listings', ListingsController::class);
-
-
 /**
  * App Routes
  */
 Route::middleware('auth')->group(function () {
     Route::resource('listings', ListingsController::class);
+    Route::get('/index', function () {
+        $listings = Auth::user()->listings;
+        return view('index')->with('listings', $listings);
+    })->name('index');
 });
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
