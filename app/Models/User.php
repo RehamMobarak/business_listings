@@ -44,6 +44,6 @@ class User extends Authenticatable
     /** Defining the relationship 1=>many */
     public function listings()
     {
-        return $this->hasMany('App\Models\Listing');
+        return $this->hasMany(Listing::class);
     }
 }

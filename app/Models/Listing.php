@@ -12,6 +12,6 @@ class Listing extends Model
     /** Every listing has 1 user */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 }
