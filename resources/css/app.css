@@ -1,3 +1,22 @@
-@import 'tailwindcss/base';
+/* @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities'; */
+/* ./resources/css/app.css */
+ /* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+@import '../../node_modules/tailwindcss/base.css';
+
+@import '../../node_modules/tailwindcss/components.css';
+
+@import '../../node_modules/tailwindcss/utilities.css';
+
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
