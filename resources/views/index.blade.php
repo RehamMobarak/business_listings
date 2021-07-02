@@ -4,31 +4,49 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1> Hi {{Auth::user()->name}}</h1>
                     @if (count($listings))
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Company</th>
-                        </tr>
-
-                        @foreach ($listings as $listing)
-                        <tr>
-                            <td>{{$listing->Name}}</td>
-                        </tr>
-                        @endforeach
-
-                    </table>
-                    @else
+                    <div class="rounded-t-xl overflow-hidden bg-gradient-to-r from-green-50 to-teal-100 p-10 ">
+                        <table class="table-auto ">
+                            <thead>
+                                <tr class="text-black">
+                                    <th class="px-4 py-2 ">Company</th>
+                                    <th class="px-4 py-2 ">Address</th>
+                                    <th class="px-4 py-2 ">Website</th>
+                                    <th class="px-4 py-2 ">Email</th>
+                                    <th class="px-4 py-2 ">Bio</th>
+                                    <th class="px-4 py-2 ">Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($listings as $listing)
+                                <tr>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                        {{$listing->Name}}</td>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                        {{$listing->Address}}</td>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                        {{$listing->Website}}</td>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                        {{$listing->Email}}</td>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                        {{$listing->Bio}}</td>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                        {{$listing->Phone}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @else
                         <p> You don't have listings yet !</p>
-                    @endif
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </x-app-layout>
