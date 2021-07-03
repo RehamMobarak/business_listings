@@ -6,17 +6,16 @@
     </x-slot>
     <div class="rounded-t-xl overflow-hidden bg-gradient-to-r from-rose-50 to-rose-100 p-10">
         <div class="text-center">
-            <button type="button"
-                class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none"
+            <button type="button" class="my-button bg-red-500 shadow-md hover:bg-red-700 focus:outline-none"
                 tabindex="-1">
-                Hover me red
+                Hover me blue
             </button>
 
 
             <button type="button"
                 class="py-2 px-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none"
                 tabindex="-1">
-                Hover me blue
+                Hover me red
             </button>
         </div>
     </div>
@@ -37,8 +36,7 @@
                         <p class="mt-2 text-gray-600">Use breeze and tailwind css for the first time.</p>
                         <div class="p-6 bg-white border-b border-gray-200">
                             You're logged in!
-                            <button
-                                class="flex rounded-full bg-blue-500 uppercase font-bold px-2 py-1 text-xs mr-3 ">Button</button>
+                            <button class="my-button">Button</button>
                         </div>
                     </div>
                 </div>
