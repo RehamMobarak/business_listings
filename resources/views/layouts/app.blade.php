@@ -33,6 +33,8 @@
 
             <!-- Page Content -->
             <main>
+                @include('inc.messages')
+
                 {{ $slot }}
             </main>
         </div>

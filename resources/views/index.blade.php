@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            My Listings
         </h2>
     </x-slot>
     <div class="py-12">
@@ -9,6 +9,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1> Hi {{Auth::user()->name}}</h1>
+
                     @if (count($listings))
                     <div class="rounded-t-xl overflow-hidden bg-gradient-to-r from-green-50 to-teal-100 p-10 ">
                         <table class="table-auto ">
