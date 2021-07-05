@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
         $listings = Auth::user()->listings;
         return view('index')->with('listings', $listings);
     })->name('index');
+    Route::get('listings/create', function () {
+        return view('create');
+    })->name('create');
 });
 
 require __DIR__ . '/auth.php';
