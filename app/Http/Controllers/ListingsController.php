@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListingsController extends Controller
 {
@@ -23,7 +25,7 @@ class ListingsController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,9 +36,28 @@ class ListingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'name'=>'required',
+            'email'=>'required|email',
+            'address'=>'required',
+            'website'=>'required',
+            'phone'=>'required|integer',
+            'bio'=>'required',
+        ]);
 
+        $listing = new Listing();
+        $listing->user_id = Auth::id();
+        $listing->Name = $request->input('name');
+        $listing->Email = $request->input('email');
+        $listing->Address = $request->input('address');
+        $listing->Website = $request->input('website');
+        $listing->Phone = $request->input('phone');
+        $listing->Bio = $request->input('bio');
+        $listing->save();
+
+        return redirect()->to('/dashboard')->with('success',"Listing created successfully !");
+
+    }
     /**
      * Display the specified resource.
      *
