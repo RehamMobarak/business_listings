@@ -89,7 +89,25 @@ class ListingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'website' => 'required',
+            'phone' => 'required|integer',
+            'bio' => 'required',
+        ]);
+
+        $listing = Listing::find($id);
+        $listing->Name = $request->input('name');
+        $listing->Email = $request->input('email');
+        $listing->Address = $request->input('address');
+        $listing->Website = $request->input('website');
+        $listing->Phone = $request->input('phone');
+        $listing->Bio = $request->input('bio');
+        $listing->save();
+
+        return redirect()->to('/dashboard')->with('success', "Listing modified successfully !");
     }
 
     /**
