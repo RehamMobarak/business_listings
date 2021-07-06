@@ -37,12 +37,12 @@ class ListingsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=>'required',
-            'email'=>'required|email',
-            'address'=>'required',
-            'website'=>'required',
-            'phone'=>'required|integer',
-            'bio'=>'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'website' => 'required',
+            'phone' => 'required|integer',
+            'bio' => 'required',
         ]);
 
         $listing = new Listing();
@@ -55,8 +55,7 @@ class ListingsController extends Controller
         $listing->Bio = $request->input('bio');
         $listing->save();
 
-        return redirect()->to('/dashboard')->with('success',"Listing created successfully !");
-
+        return redirect()->to('/dashboard')->with('success', "Listing created successfully !");
     }
     /**
      * Display the specified resource.
@@ -77,7 +76,8 @@ class ListingsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $listing = Listing::find($id);
+        return view('edit')->with('listing', $listing);
     }
 
     /**
