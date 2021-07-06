@@ -21,6 +21,7 @@
                                     <th class="px-4 py-2 ">Email</th>
                                     <th class="px-4 py-2 ">Bio</th>
                                     <th class="px-4 py-2 ">Phone</th>
+                                    <th class="px-4 py-2 ">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,6 +39,10 @@
                                         {{$listing->Bio}}</td>
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         {{$listing->Phone}}</td>
+                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                      <a href="/listings/{{$listing->id}}/edit" class="edit-btn"> Edit</a>
+                                      <a href="/listings/{{$listing->id}}/delete" class="delete-btn"> Delete</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
