@@ -40,8 +40,14 @@
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         {{$listing->Phone}}</td>
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
-                                      <a href="/listings/{{$listing->id}}/edit" class="edit-btn"> Edit</a>
-                                      <a href="/listings/{{$listing->id}}/delete" class="delete-btn"> Delete</a>
+                                        <form class="float-right" method="POST" action="/listings/{{$listing->id}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="delete-btn" type="submit"> Delete</button>
+                                        </form>
+
+                                        <a href="/listings/{{$listing->id}}/edit" class="edit-btn float-right mr-2"> Edit</a>
+
                                     </td>
                                 </tr>
                                 @endforeach
