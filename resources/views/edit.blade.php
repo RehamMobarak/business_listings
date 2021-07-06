@@ -8,7 +8,7 @@
     <div>
         <div class="md:grid md:grid-cols-1 md:gap-6">
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="/listings/{{$listing->id}}/edit" method="POST" enctype="multipart/form-data">
+                <form action="/listings/{{$listing->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="shadow sm:rounded-md sm:overflow-hidden">
