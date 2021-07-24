@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ListingsController extends Controller
 {
+    //**  if i wanted to make listings shown to public but modifying , creating or deleting require logging in
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth', ['except' => ['index', 'show']]);
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +24,7 @@ class ListingsController extends Controller
     {
         // $listings = Auth::user()->listings;
         // $listings = Listing::orderBy('created_at','desc')->get();
-        $listings = auth()->user()->listings()->orderBy("created_at","desc")->get();
+        $listings = auth()->user()->listings()->orderBy("created_at", "desc")->get();
         return view('index')->with('listings', $listings);
     }
 
@@ -69,7 +76,7 @@ class ListingsController extends Controller
     public function show($id)
     {
         $listing = Listing::find($id);
-        return view('show')->with('listing',$listing);
+        return view('show')->with('listing', $listing);
     }
 
     /**
