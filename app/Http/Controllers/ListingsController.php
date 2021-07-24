@@ -15,7 +15,10 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        //
+        // $listings = Auth::user()->listings;
+        // $listings = Listing::orderBy('created_at','desc')->get();
+        $listings = auth()->user()->listings()->orderBy("created_at","desc")->get();
+        return view('index')->with('listings', $listings);
     }
 
     /**
