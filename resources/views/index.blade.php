@@ -16,11 +16,11 @@
                             <thead>
                                 <tr class="text-black">
                                     <th class="px-4 py-2 ">Company</th>
-                                    <th class="px-4 py-2 ">Address</th>
+                                    {{-- <th class="px-4 py-2 ">Address</th>
                                     <th class="px-4 py-2 ">Website</th>
                                     <th class="px-4 py-2 ">Email</th>
                                     <th class="px-4 py-2 ">Bio</th>
-                                    <th class="px-4 py-2 ">Phone</th>
+                                    <th class="px-4 py-2 ">Phone</th> --}}
                                     <th class="px-4 py-2 ">Actions</th>
                                 </tr>
                             </thead>
@@ -29,7 +29,7 @@
                                 <tr>
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         {{$listing->Name}}</td>
-                                    <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
+                                    {{-- <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         {{$listing->Address}}</td>
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         {{$listing->Website}}</td>
@@ -38,7 +38,7 @@
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         {{$listing->Bio}}</td>
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
-                                        {{$listing->Phone}}</td>
+                                        {{$listing->Phone}}</td> --}}
                                     <td class="border border-green-500 px-4 py-2 text-green-600 font-medium">
                                         <form class="float-right" method="POST" action="/listings/{{$listing->id}}">
                                             @csrf
@@ -46,8 +46,11 @@
                                             <button class="delete-btn" type="submit"> Delete</button>
                                         </form>
 
-                                        <a href="/listings/{{$listing->id}}/edit" class="edit-btn float-right mr-2"> Edit</a>
+                                        <a href="/listings/{{$listing->id}}/edit" class="edit-btn float-right mr-2">
+                                            Edit</a>
 
+                                        <a href="/listings/{{$listing->id}}" class="my-button float-right mr-2">
+                                            Show</a>
                                     </td>
                                 </tr>
                                 @endforeach
