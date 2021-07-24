@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingsController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -28,10 +30,7 @@ Route::get('/dashboard', function () {
  */
 Route::middleware('auth')->group(function () {
     Route::resource('listings', ListingsController::class);
-    Route::get('/index', function () {
-        $listings = Auth::user()->listings;
-        return view('index')->with('listings', $listings);
-    })->name('index');
+    Route::get('/index', [ListingsController::class, 'index'])->name('index');
     Route::get('listings/create', function () {
         return view('create');
     })->name('create');
